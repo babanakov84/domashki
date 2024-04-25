@@ -10,27 +10,16 @@ func main() {
 	fmt.Scanf("%d\n", &b)
 
 	for i := 1; i <= a; i++ {
-		switch i%2 == 1 {
-		case true:
-			for j := 1; j <= b; j++ {
-				switch j%2 == 1 {
-				case true:
-					fmt.Printf("%3v", "X")
-				default:
-					fmt.Printf("%3v", " ")
-				}
+		c := i % 2
+		for j := 1; j <= b; j++ {
+			switch j % 2 {
+			case c:
+				fmt.Printf("%3v", "X")
+			default:
+				fmt.Printf("%3v", " ")
 			}
-			fmt.Printf("\n")
-		case false:
-			for j := 1; j <= b; j++ {
-				switch j%2 == 1 {
-				case true:
-					fmt.Printf("%3v", " ")
-				default:
-					fmt.Printf("%3v", "X")
-				}
-			}
-			fmt.Printf("\n")
 		}
+		fmt.Printf("\n")
+
 	}
 }
