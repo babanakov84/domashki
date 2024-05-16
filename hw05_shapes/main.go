@@ -9,36 +9,36 @@ type Shape interface {
 	Area() (float32, error)
 }
 type Circle struct {
-	radius float32
+	Radius float32
 }
 
 func (c Circle) Area() (float32, error) {
-	if c.radius < 0 {
+	if c.Radius < 0 {
 		return 0, fmt.Errorf("ошибка: радиус не может быть отрицательный")
 	}
-	return math.Pi * c.radius * c.radius, nil
+	return math.Pi * c.Radius * c.Radius, nil
 }
 
 type Rectangle struct {
-	width, height float32
+	Width, Height float32
 }
 
 func (r Rectangle) Area() (float32, error) {
-	if r.width < 0 || r.height < 0 {
+	if r.Width < 0 || r.Height < 0 {
 		return 0, fmt.Errorf("ошибка: ширина и высота не могут быть отрицательными")
 	}
-	return r.width * r.height, nil
+	return r.Width * r.Height, nil
 }
 
 type Triangle struct {
-	base, height float32
+	Base, Height float32
 }
 
 func (t Triangle) Area() (float32, error) {
-	if t.base < 0 || t.height < 0 {
+	if t.Base < 0 || t.Height < 0 {
 		return 0, fmt.Errorf("ошибка: основание и высота не могут быть отрицательными")
 	}
-	return 0.5 * t.base * t.height, nil
+	return 0.5 * t.Base * t.Height, nil
 }
 
 func calculateArea(s any) (float32, error) {
@@ -51,26 +51,26 @@ func calculateArea(s any) (float32, error) {
 }
 
 func main() {
-	Circle1 := Circle{radius: 20}
+	Circle1 := Circle{Radius: 20}
 	areaCircle, err := calculateArea(Circle1)
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Printf("Круг: радиус %f \nПлощадь: %f", Circle1.radius, areaCircle)
+		fmt.Printf("Круг: радиус %f \nПлощадь: %f", Circle1.Radius, areaCircle)
 	}
-	Rectangle1 := Rectangle{width: 15, height: 12}
+	Rectangle1 := Rectangle{Width: 15, Height: 12}
 	areaRectangle, err := calculateArea(Rectangle1)
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Printf("\nПрямоугольник: ширина %f, высота %f \nПлощадь: %f", Rectangle1.width, Rectangle1.height, areaRectangle)
+		fmt.Printf("\nПрямоугольник: ширина %f, высота %f \nПлощадь: %f", Rectangle1.Width, Rectangle1.Height, areaRectangle)
 	}
-	Triangle1 := Triangle{base: 14, height: 7}
+	Triangle1 := Triangle{Base: 14, Height: 7}
 	areaTriangle, err := calculateArea(Triangle1)
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Printf("\nТреугольник: основание %f, высота %f \nПлощадь: %f", Triangle1.base, Triangle1.height, areaTriangle)
+		fmt.Printf("\nТреугольник: основание %f, высота %f \nПлощадь: %f", Triangle1.Base, Triangle1.Height, areaTriangle)
 	}
 	Parallelogram1 := "parallelogram"
 	_, err = calculateArea(Parallelogram1)
