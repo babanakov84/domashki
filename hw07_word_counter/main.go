@@ -31,5 +31,5 @@ func main() {
 
 // hey, teacher
 // We do not need no education, We do not need no thought control.
-//teachers, leave those kids alone
+// teachers, leave those kids alone
 //
