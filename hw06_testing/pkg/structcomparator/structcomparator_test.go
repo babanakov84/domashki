@@ -29,12 +29,12 @@ func TestBookComparator(t *testing.T) {
 		comparison ComparisonMather
 		expected   bool
 	}{
-		{"По Году - Книга1 более новая", book1, book2, ByYear, false},
-		{"По Году - Книга2 более новая", book2, book1, ByYear, true},
+		{"По Году - Книга1 новее", book1, book2, ByYear, true},
+		{"По Году - Книга2 новее", book2, book1, ByYear, false},
 		{"По Страницам - Книга1 больше", book1, book2, BySize, false},
 		{"По Страницам - Книга2 больше", book2, book1, BySize, true},
-		{"По Рейтингу - Книга1 выше", book1, book2, ByRate, true},
-		{"По Рейтингу - Книга2 выше", book2, book1, ByRate, false},
+		{"По Рейтингу - Книга1 выше", book1, book2, ByRate, false},
+		{"По Рейтингу - Книга2 выше", book2, book1, ByRate, true},
 	}
 
 	for _, tt := range tests {
@@ -42,7 +42,7 @@ func TestBookComparator(t *testing.T) {
 			comparator := NewBookComparator(tt.comparison)
 			result := comparator.Compare(tt.book1, tt.book2)
 			if result != tt.expected {
-				t.Errorf("comparation failed %s: expected %t, got %t", tt.name, tt.expected, result)
+				t.Errorf("Сравнение неудачно для %s: ожидалось %t, получено %t", tt.name, tt.expected, result)
 			}
 		})
 	}
